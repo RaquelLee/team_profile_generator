@@ -108,13 +108,13 @@ if(data == "Intern"){
 };
 
 const generateUniqueSection = (data) => {
-    if(data == "Manager"){
+    if(data.getRole() == "Manager"){
         return `Office <i class="fas fa-hashtag"></i> ${data.officeNumber}`;
     }
-    if(data == "Engineer"){
+    if(data.getRole() == "Engineer"){
         return `<i class="fab fa-github"></i> GitHub <a href="www.github.com/${data.github}" target="_blank">${data.github}</a>`;
     }
-    if(data == "Intern"){
+    if(data.getRole() == "Intern"){
         return `<i class="fas fa-school"></i> School ${data.school}`;
     }
     };
@@ -136,7 +136,7 @@ const generateHtml = () => {
             <i class="far fa-paper-plane"></i>
             <a href="mailto:${data.email}">${data.email}</a>
             </li>
-            <li class="collection-item">${generateUniqueSection(data.getRole())}</li>
+            <li class="collection-item">${generateUniqueSection(data)}</li>
             </ul>
             </div>
             `
@@ -203,125 +203,3 @@ const generateHtmlPage = () => {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     </html>`
 };
-
-//array of objects 
-
-//employee type for header
-//employee type for office num, github, or school
-// const generateHtml = () => {
-
-// }
-
-
-//if unique = github, role =SWE
-//if unique = role = int
-
-// if (data.github) 
-// else if (data.)
-
-// const createEmployee = (type) =>{
-//     inquirer.prompt(type).then((data) => {
-//         new type = data.name, data.id, data.email
-//     });
-// }
-
-// const determineType = (type) =>
-// { if (type === )
-
-// }
-
-// if data.github
-// if 
-
-
-// const createEmployee = (questions, role) => {
-//         inquirer.prompt(questions).then((data) => {
-//             console.log(data)
-//             new data.role = (data.name, data.id, data.email)
-//             employees.push(data.role);
-//             //prompt to ask what next
-//         });
-//     };
-
-
-// createEmployee();
-
-// const genHtml = require('./utils/generateHtml');
-//func to return
-// const menuOption = () => {
-// return {
-//     type: "list",
-//     message: "Select a new position for input",
-//     name: "type",
-//     choices: ["Engineer", "Intern","finish"]
-//     //choose finish, run write to file 
-// };
-
-
-
-// const engineerQuestion => () {
-// return {// return engineer
-// type: "input",
-// message: "Employee Github:",
-// name: "github",
-// }//taken back to list
-// }
-
-// const internQuestion = () => {
-// return {
-// type: "input",
-// message: "Intern School:",
-// name: "school"
-// }
-// }
-
-
-// )};
-
-// const fs = require('fs');
-// const Employee = require("./lib/employee")
-// const Manager = require("./lib/manager")
-// const Engineer = require("./lib/engineer")
-// const Intern = require("./lib/intern")
-// employees = [];
-// const employeeQuestions = () => {
-//     return ();
-// };
-//welcome msg
-// init(manager)
-
-    //     type: "list",
-    //     message: "Select a new position for input",
-    //     name: "type",
-    //     choices: ["Engineer", "Intern","finish"]
-    // const managerQuestion = () => {
-    //     return 
-    // };
-    // const otherPositions = [
-    //     //     {
-        //         type: "list",
-        //         message: "Select a new position for input",
-        //         name: "type",
-        //         choices: ["Engineer", "Intern","Exit"]
-        //     },
-        //     { 
-        //         type: "input",
-        //         message: "Employee Name:",
-        //         name: "name"
-        //     },
-        //     {
-        //         type: "input",
-        //         message: "Employee ID:",
-        //         name: "id"
-        //     },
-        //     {
-        //         type: "input",
-        //         message: "Employee email:",
-        //         name: "email"
-        //     },
-        
-        
-
-// const positions = () => {
-//     if("type" === "engineer")
-// };

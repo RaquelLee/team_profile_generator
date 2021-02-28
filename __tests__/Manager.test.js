@@ -1,12 +1,12 @@
-const Manager = require("../lib/manager");
+const Manager = require("../lib/Manager");
+
 test("testing if we can get officeNumber", () => {
     const testValue = 1;
     const manager = new Manager("raquel", 2, 
 "r@intern.com", 1);
 
-expect(manager.officeNumber.toBe(testValue)
-
-)});
+expect(manager.officeNumber).toBe(testValue)
+});
 
 test("testing if we can get role", () => {
     const testValue = "Manager";

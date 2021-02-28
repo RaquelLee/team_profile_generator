@@ -3,7 +3,7 @@ const Intern = require("../lib/intern");
 test("testing if we can get school", () => {
     const testValue = "UCF";
     const intern = new Intern("raquel", 16, 
-"r@intern.com", "intern", "UCF");
+"r@intern.com", "UCF");
 
 expect(intern.getSchool()).toBe(testValue);
 });

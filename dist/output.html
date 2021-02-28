@@ -1,55 +1,84 @@
-<div class="col">
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <script src="https://kit.fontawesome.com/25e30c11ff.js" crossorigin="anonymous"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div class="nav-wrapper">
+                    <a href="#" class="brand-logo center">Employee Profiles <i class="far fa-id-card"></i>
+                    </a>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <div class ="row center">
+            <div class="col">
             <ul class="collection with-header">
             <li class="collection-header">
-            <h5>sfss</h5>
+            <h5>name</h5>
             </li>
             <li class="collection-item">
-            <h6><i class="fas fa-user-graduate"></i> Intern</h6>
+            <h6><i class="fas fa-user-tie"></i> Manager</h6>
             </li>
             <li class="collection-item">
-            ID: sdfsdf
+            ID : 1
             </li>
             <li class="collection-item">
             <i class="far fa-paper-plane"></i>
-            <a href="mailto:sdfdssd">sdfdssd</a>
+            <a href="mailto:manager@hi.com">manager@hi.com</a>
             </li>
-            <li class="collection-item">unique data</li>
+            <li class="collection-item">Office <i class="fas fa-hashtag"></i> ${data.officenum}</li>
             </ul>
             </div>
             <div class="col">
             <ul class="collection with-header">
             <li class="collection-header">
-            <h5>sdfsdf</h5>
+            <h5>engname</h5>
             </li>
             <li class="collection-item">
-            <h6><i class="fas fa-user-graduate"></i> Intern</h6>
+            <h6><i class="fas fa-laptop-code"></i> Engineer</h6>
             </li>
             <li class="collection-item">
-            ID: sdfdsf
+            ID : 2
             </li>
             <li class="collection-item">
             <i class="far fa-paper-plane"></i>
-            <a href="mailto:sfdsdfds">sfdsdfds</a>
+            <a href="mailto:engemail@hi.com">engemail@hi.com</a>
             </li>
-            <li class="collection-item">unique data</li>
+            <li class="collection-item"><i class="fab fa-github"></i> GitHub <a href="www.github.com/${data.github}" target="_blank">${data.github}</a></li>
             </ul>
             </div>
             <div class="col">
             <ul class="collection with-header">
             <li class="collection-header">
-            <h5>sdfsdfds</h5>
+            <h5>internname</h5>
             </li>
             <li class="collection-item">
             <h6><i class="fas fa-user-graduate"></i> Intern</h6>
             </li>
             <li class="collection-item">
-            ID: sdfss
+            ID : 3
             </li>
             <li class="collection-item">
             <i class="far fa-paper-plane"></i>
-            <a href="mailto:fffsdfd">fffsdfd</a>
+            <a href="mailto:intern@hi.com">intern@hi.com</a>
             </li>
-            <li class="collection-item">unique data</li>
+            <li class="collection-item"><i class="fas fa-school"></i> School ${data.school}</li>
             </ul>
             </div>
             
+            </div>
+        </main>
+        <footer class="page-footer">
+        </footer>
+    </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    </html>

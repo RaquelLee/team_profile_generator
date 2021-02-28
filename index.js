@@ -24,15 +24,14 @@ const managerQs = [
     {
         type: "number",
         message: "Office Number",
-        name: "officenum"
+        name: "officeNumber"
     }
 ];
 
 const employeeArr = [];
 
 inquirer.prompt(managerQs).then((data) => {
-    role = "Manager";
-    const manager = new Manager(data.name, data.id, data.email, role, data.officenum);
+    const manager = new Manager(data.name, data.id, data.email, data.officeNumber);
     employeeArr.push(manager);
     console.log("let's finish building your team!");
     init();
@@ -96,17 +95,30 @@ const writeToFile = (fileName, data) => {
         err ? console.error(err) : console.log("Success!");
     })};
 
-const generateHeader = (role) => {
-switch (role){
-    case "Manager":
-        return '<i class="fas fa-user-tie"></i> Manager';
-    case "Engineer":
-        return '<i class="fas fa-laptop-code"></i> Engineer';
-    case "Intern":
-        return '<i class="fas fa-user-graduate"></i> Intern';
+const generateHeader = (data) => {
+if(data == "Manager"){
+    return '<i class="fas fa-user-tie"></i> Manager';
+}
+if(data == "Engineer"){
+    return '<i class="fas fa-laptop-code"></i> Engineer';
+}
+if(data == "Intern"){
+    return '<i class="fas fa-user-graduate"></i> Intern';
 }
 };
-// attempting to generate HTML to write to file but employeeHtml cannot be read on line 138
+
+const generateUniqueSection = (data) => {
+    if(data == "Manager"){
+        return 'Office <i class="fas fa-hashtag"></i> ${data.officeNumber}';
+    }
+    if(data == "Engineer"){
+        return '<i class="fab fa-github"></i> GitHub <a href="www.github.com/${data.github}" target="_blank">${data.github}</a>';
+    }
+    if(data == "Intern"){
+        return '<i class="fas fa-school"></i> School ${data.school}';
+    }
+    };
+
 const generateHtml = () => {
         let employeeHtml = employeeArr.map(function(data){
             return `<div class="col">
@@ -115,16 +127,16 @@ const generateHtml = () => {
             <h5>${data.name}</h5>
             </li>
             <li class="collection-item">
-            <h6>${generateHeader(role)}</h6>
+            <h6>${generateHeader(data.getRole())}</h6>
             </li>
             <li class="collection-item">
-            ID: ${data.id}
+            ID : ${data.id}
             </li>
             <li class="collection-item">
             <i class="far fa-paper-plane"></i>
             <a href="mailto:${data.email}">${data.email}</a>
             </li>
-            <li class="collection-item">unique data</li>
+            <li class="collection-item">${generateUniqueSection(data.getRole())}</li>
             </ul>
             </div>
             `
@@ -137,18 +149,16 @@ const generateHtml = () => {
 const next = (type) => {
     if (type === "Engineer") {
         inquirer.prompt(engineerQs).then((data) => {
-            role = "Engineer";
-            const engineer = new Engineer(data.name, data.id, data.email, role, data.github);
+            const engineer = new Engineer(data.name, data.id, data.email, data.github);
             employeeArr.push(engineer);
             init();
         });} else if (type === "Intern") {
             inquirer.prompt(internQs).then((data) => {
-                role = "Intern"
-                const intern = new Intern(data.name, data.id, data.email, role, data.school);
+                const intern = new Intern(data.name, data.id, data.email, data.school);
                 employeeArr.push(intern);
                 init();
             });} else {
-                let htmlString = generateHtml();
+                let htmlString = generateHtmlPage();
                 console.log(employeeArr);
                 writeToFile("./dist/output.html", htmlString);
     };
@@ -161,7 +171,38 @@ const init = () => {
 };
 
 
-
+const generateHtmlPage = () => {
+    return `<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <script src="https://kit.fontawesome.com/25e30c11ff.js" crossorigin="anonymous"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div class="nav-wrapper">
+                    <a href="#" class="brand-logo center">Employee Profiles <i class="far fa-id-card"></i>
+                    </a>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <div class ="row center">
+            ${generateHtml()}
+            </div>
+        </main>
+        <footer class="page-footer">
+        </footer>
+    </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    </html>`
+};
 
 //array of objects 
 

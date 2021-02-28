@@ -15,3 +15,11 @@ test("testing if we can get school", () => {
 
 expect(intern.getSchool()).toBe(testValue);
 });
+
+test("testing if we can get role", () => {
+    const testValue = "Intern";
+    const intern = new Intern("raquel", 16, 
+"r@intern.com", "UCF");
+
+expect(intern.getRole()).toBe(testValue);
+});

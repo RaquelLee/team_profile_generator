@@ -31,7 +31,7 @@ const managerQs = [
 const employeeArr = [];
 
 inquirer.prompt(managerQs).then((data) => {
-    const manager = new Manager(data.name, data.id, data.email, data.officenum);
+    const manager = new Manager(data.name, data.id, data.email, data.officenum, role);
     employeeArr.push(manager);
     console.log("let's finish building your team!");
     init();
@@ -98,7 +98,7 @@ const writeToFile = (fileName, data) => {
 
 // attempting to generate HTML to write to file but employeeHtml cannot be read on line 138
 const generateHtml = () => {
-        let employeeHtml = employeeArr.map(function(){
+        let employeeHtml = employeeArr.map(function(data){
             return `<div class="col">
             <ul class="collection with-header">
             <li class="collection-header">
@@ -119,24 +119,24 @@ const generateHtml = () => {
             </div>
             `
         }).join("");
+        return employeeHtml;
 };
-
 
 const next = (type) => {
     if (type === "Engineer") {
         inquirer.prompt(engineerQs).then((data) => {
-            const engineer = new Engineer(data.name, data.id, data.email, data.github);
+            const engineer = new Engineer(data.name, data.id, data.email, data.github, role);
             employeeArr.push(engineer);
             init();
         });} else if (type === "Intern") {
             inquirer.prompt(internQs).then((data) => {
-                const intern = new Intern(data.name, data.id, data.email, data.school);
+                const intern = new Intern(data.name, data.id, data.email, data.school, role);
                 employeeArr.push(intern);
                 init();
             });} else {
-                generateHtml();
-                console.log(employeeHtml);
-                // writeToFile("./dist/output.html", employeeHTML);
+                let htmlString = generateHtml();
+                console.log(employeeArr);
+                writeToFile("./dist/output.html", htmlString);
     };
 };
 

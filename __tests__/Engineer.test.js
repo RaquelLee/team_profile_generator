@@ -8,10 +8,3 @@ const engineer = require("../lib/engineer");
 // * `getGithub()`
 
 // * `getRole()`&mdash;overridden to return `'Engineer'`
-describe("Intern", () => {
-    describe("Initialization", () => {
-    it("", () => {
-        expect();
-    });
-
-})});

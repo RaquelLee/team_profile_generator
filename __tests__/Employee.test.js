@@ -8,10 +8,3 @@ const employee = require("../lib/employee");
 //getId()
 //getEmail()
 //getRole() returns Employee
-describe("Intern", () => {
-    describe("Initialization", () => {
-    it("", () => {
-        expect();
-    });
-
-})});

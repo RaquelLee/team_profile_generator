@@ -6,10 +6,3 @@ const manager = require("../lib/manager");
 // * `officeNumber`
 
 // * `getRole()`&mdash;overridden to return `'Manager'`
-describe("Intern", () => {
-    describe("Initialization", () => {
-    it("", () => {
-        expect();
-    });
-
-})});

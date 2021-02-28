@@ -17,7 +17,7 @@ This application can be invoked by using the following command:
 node index.js
 ```
 ## Usage
-![functionalitygif]()
+![functionalitygif](https://github.com/RaquelLee/team_profile_generator/blob/main/assets/demo.gif)
 
 [View Demo Video](https://drive.google.com/file/d/19MRk6KB3QZxDzMGU_BX3yW4-szZ54fpj/view)
 

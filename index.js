@@ -31,7 +31,8 @@ const managerQs = [
 const employeeArr = [];
 
 inquirer.prompt(managerQs).then((data) => {
-    const manager = new Manager(data.name, data.id, data.email, data.officenum, role);
+    role = "Manager";
+    const manager = new Manager(data.name, data.id, data.email, role, data.officenum);
     employeeArr.push(manager);
     console.log("let's finish building your team!");
     init();
@@ -95,7 +96,16 @@ const writeToFile = (fileName, data) => {
         err ? console.error(err) : console.log("Success!");
     })};
 
-
+const generateHeader = (role) => {
+switch (role){
+    case "Manager":
+        return '<i class="fas fa-user-tie"></i> Manager';
+    case "Engineer":
+        return '<i class="fas fa-laptop-code"></i> Engineer';
+    case "Intern":
+        return '<i class="fas fa-user-graduate"></i> Intern';
+}
+};
 // attempting to generate HTML to write to file but employeeHtml cannot be read on line 138
 const generateHtml = () => {
         let employeeHtml = employeeArr.map(function(data){
@@ -105,7 +115,7 @@ const generateHtml = () => {
             <h5>${data.name}</h5>
             </li>
             <li class="collection-item">
-            <h6>Unique Position</h6>
+            <h6>${generateHeader(role)}</h6>
             </li>
             <li class="collection-item">
             ID: ${data.id}
@@ -122,15 +132,19 @@ const generateHtml = () => {
         return employeeHtml;
 };
 
+
+
 const next = (type) => {
     if (type === "Engineer") {
         inquirer.prompt(engineerQs).then((data) => {
-            const engineer = new Engineer(data.name, data.id, data.email, data.github, role);
+            role = "Engineer";
+            const engineer = new Engineer(data.name, data.id, data.email, role, data.github);
             employeeArr.push(engineer);
             init();
         });} else if (type === "Intern") {
             inquirer.prompt(internQs).then((data) => {
-                const intern = new Intern(data.name, data.id, data.email, data.school, role);
+                role = "Intern"
+                const intern = new Intern(data.name, data.id, data.email, role, data.school);
                 employeeArr.push(intern);
                 init();
             });} else {

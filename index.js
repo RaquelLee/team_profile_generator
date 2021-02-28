@@ -109,13 +109,13 @@ if(data == "Intern"){
 
 const generateUniqueSection = (data) => {
     if(data == "Manager"){
-        return 'Office <i class="fas fa-hashtag"></i> ${data.officeNumber}';
+        return `Office <i class="fas fa-hashtag"></i> ${data.officeNumber}`;
     }
     if(data == "Engineer"){
-        return '<i class="fab fa-github"></i> GitHub <a href="www.github.com/${data.github}" target="_blank">${data.github}</a>';
+        return `<i class="fab fa-github"></i> GitHub <a href="www.github.com/${data.github}" target="_blank">${data.github}</a>`;
     }
     if(data == "Intern"){
-        return '<i class="fas fa-school"></i> School ${data.school}';
+        return `<i class="fas fa-school"></i> School ${data.school}`;
     }
     };
 

@@ -5,6 +5,14 @@ test("testing if we can get school", () => {
     const intern = new Intern("raquel", 16, 
 "r@intern.com", "UCF");
 
+expect(intern.school).toBe(testValue);
+});
+
+test("testing if we can get school", () => {
+    const testValue = "UCF";
+    const intern = new Intern("raquel", 16, 
+"r@intern.com", "UCF");
+
 expect(intern.getSchool()).toBe(testValue);
 });
 

@@ -1,5 +1,5 @@
 # employee_profile_generator
-![license](https://img.shields.io/github/license/raquellee/employee_profile_generator)<br />
+![license](https://img.shields.io/github/license/raquellee/team_profile_generator)<br />
 
 
 ## Technologies Used 
